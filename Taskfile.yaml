@@ -1,0 +1,18 @@
+version: 3
+
+tasks:
+  fmt:
+    sources:
+      - '*.go'
+    cmd: gofmt -w .
+
+  test:
+    run: once
+    sources:
+      - '*.go'
+      - go.sum
+    cmd: go test ./...
+
+  check:
+    deps:
+      - test
