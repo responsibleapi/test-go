@@ -4,13 +4,11 @@ HTTP/API boundary test helper for http servers
 
 It sends requests with the standard library `*http.Client` and validates responses with `github.com/getkin/kin-openapi`.
 
-## Rules
+## Install
 
-- Keep tests at HTTP/API boundary.
-- Use the app's real test server.
-- Assert business behavior in tests.
-- Let this helper assert OpenAPI response status, headers, and body schemas.
-- Do not assert generated OpenAPI internals in API tests.
+```sh
+go get github.com/responsibleapi/test-go
+```
 
 ## Usage
 
