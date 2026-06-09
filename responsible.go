@@ -45,6 +45,14 @@ type Operation struct {
 	operation *openapi3.Operation
 }
 
+// RequestOptions describes the request Responsible should build for an OpenAPI operation.
+//
+// It intentionally is not *http.Request. Two inputs are easier to express before
+// a request exists: OpenAPI path params, which must be expanded into the
+// operation path, and common test bodies such as JSON, which should set the
+// body and Content-Type without repeated marshal boilerplate. After
+// Operation.NewRequest builds the request, callers can still mutate the returned
+// *http.Request normally.
 type RequestOptions struct {
 	PathParams  map[string]string
 	Query       url.Values
